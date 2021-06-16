@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+   
+   <!-- ※ 스프링이 제공하는 환경 설정 XML 파일 샘플 -->
+   <!--    → 스프링이 생성하고 관리해야 할 객체들에 대한 정보 전달 -->
+   
+   <!-- CalculatorImpl 클래스의 객체 생성을 위한 정보 전달 -->
+   <bean id="cal" class="com.test.spr.CalculatorImpl"></bean>   
+   
+   <!-- CalculatorAspect 클래스의 객체 생성을 위한 정보 전달 -->
+   <bean id="aspect" class="com.test.spr.CalculatorAspect"></bean>   
+   
+   <!-- 프록시를 우리가 안만들뿐.. 스프링이 만들어준다. 
+        설계도도 스프링이 갖고 있다. -->
+   
+   <!-- check~!!! -->
+   <!-- 프록시 설계도의 이름 ↓ -->
+   <!-- 『ProxyFactoryBean』 -->
+   <!-- 빈(클래스)를 만드는 공장인데 Proxy -->
+   <!-- 스프링이 제공하는 가짜 객체(Proxy) 클래스의 객체 생성을 위한 정보 전달 -->
+   <bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+   
+   		<!-- 주 업무 클래스의 인터페이스 정보 제공 -->
+   		<!-- 프록시 클래스가 갖고있는 변수의 이름 = property name -->
+   		<!-- 정보은닉 때문에 class에 적혀있는 경로를 따라 가서 값 넘기기 불가 -->
+   		<!-- → 『proxyInterfaces』 -->
+   		<property name="proxyInterfaces">
+   			<!-- 복수형 프로퍼티 → list 엘리먼트 사용 -->
+   			<list>
+   				<value>com.test.spr.Calculator</value>
+   			</list>
+   		</property>
+
+   		<!-- 주 업무 클래스의 객체 정보 제공 -->
+   		<!-- → 『target』 -->
+   		<property name="target"></property>
+
+   		<!-- 보조 업무 클래스의 객체 정보 제공 -->
+   		<!-- → 『interceptorNames』 -->
+   		<!-- 인터셉터의 이름'들' -->
+   		<!-- name's' 복수형이다, 보조업무 클래스를 여러개만들수있다 -->
+   		<property name="interceptorNames">
+		   	<!-- 복수형 프로퍼티 → list 엘리먼트 사용 -->
+   			<list>
+   			
+   			</list>
+   		
+   		</property>
+   
+   </bean>
+   
+</beans>

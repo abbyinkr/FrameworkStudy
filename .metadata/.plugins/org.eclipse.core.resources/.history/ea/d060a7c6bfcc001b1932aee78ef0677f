@@ -1,0 +1,15 @@
+/*==================================
+ CalculatorAspect.java
+ - 보조 업무 수행 클래스.
+ - 보조 업무 적용, 주 업무 호출.
+==================================*/
+
+package com.test.spr;
+
+// ※ Spring AOP Proxy 클래스를 만들기 위해서
+//    MethodInterceptor 인터페이스를 구현하는 클래스로 설계한다.
+
+public class CalculatorAspect 
+{
+
+}

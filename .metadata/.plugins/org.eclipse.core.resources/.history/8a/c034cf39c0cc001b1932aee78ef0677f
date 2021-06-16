@@ -1,0 +1,28 @@
+/*==================================
+ CalculatorAspect.java
+ - 보조 업무 수행 클래스.
+ - 보조 업무 적용, 주 업무 호출.
+==================================*/
+
+package com.test.spr;
+
+import org.aopalliance.intercept.MethodInterceptor;
+import org.aopalliance.intercept.MethodInvocation;
+
+	// ※ Spring AOP Proxy 클래스를 만들기 위해서
+	//    MethodInterceptor 인터페이스를 구현하는 클래스로 설계한다.
+	//    Intercept + or(기능,사람,행위)
+	//    정미 상태로 뛰어가는걸 가영이가 가로챈다..
+	
+public class CalculatorAspect implements MethodInterceptor
+{
+	// 보조 업무 적용 및 주 업무 호출 과정 추가
+	@Override
+	public Object invoke(MethodInvocation method) throws Throwable
+	{
+
+	
+	}
+
+	
+}

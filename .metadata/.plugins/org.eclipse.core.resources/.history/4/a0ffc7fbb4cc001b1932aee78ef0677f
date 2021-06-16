@@ -1,0 +1,17 @@
+/*======================================
+ CalculatorProxy.java
+ - 프록시 클래스.
+ - 보조 업무 적용 및 주 업무 호출 과정.
+======================================*/
+
+
+package com.test.spr;
+
+// ※ Proxy 클래스를 만드는 방법 중 비교적 쉽고 직관적인 방법은
+//    invocationHandler 인터페이스를 구현하는 클래스를 만드는 것이다.
+
+
+public class CalculatorProxy
+{
+
+}
