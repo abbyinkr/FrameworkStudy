@@ -1,0 +1,65 @@
+■■■ Spring Framework 환경설정 ■■■
+
+※ 스프링 프레임워크(Spring Framework) 구성을 위해
+   스프링 프레임워크 관련 파일을 다운로드 받아야 하는데
+   http://www.spring.io 경로에 접근하여 확인해보면
+   다운로드 받을 수 있는 경로를 찾을 수 없는 상태이다.
+   (STS 연동 (Maven 활용)만 가능한 형태...)
+   
+○ 적용 및 테스트가 원활한 버전으로 실습 환경 구성(비STS)
+
+   ① s-f-3.0.2.-with-docs.zip
+      기본적인 스프링 프레임워크 구성에 필요한 필수적인 jar 파일과
+      스프링 프레임워크 설명문서(PDF 버전, HTML 버전)가 포함된 항목.
+      즉, 스프링 원래의 jar 파일들~!!
+
+   ② s-f-3.0.2.-dependencies.zip
+      스프링 프레임워크 구성에 의존성을 가진 jar 파일들이 포함된 항목.
+      어떤 기능을 수행하느냐에 따라 추가적으로 필요한 항목.
+      스프링이 참조하는 의존 jar 파일들~!!!
+ 
+   ※ 주의
+      다운로드 받은 두 개의 압축 파일은 
+      압축 해제 과정에서 이름 및 경로가 길어 압축해제에 실패하는 상황이
+      발생할 수 있으므로, 단순 경로에 축약된 이름으로
+      압축을 해제할 수 있도록 한다.
+      (그 안에 들어있는 jar 파일들을 필요할 때 마다 확인하여
+       복사할 예정 이기 때문에 쉬운 경로에 압축을 풀어놓는다는 의미도 있지만
+       압축을 해제하는 과정에서 이름(경로 포함)이 길어서 
+       오류가 나는 상황이 발생할 수 있기 때문에
+       간단한 경로에서 압축을 해제할 수 있도록 한다.) 
+
+
+
+
+○ 실습 환경 구성
+   → 스프링 자원을 활용할 수 있는 환경 구성
+   1. 프로젝트명 마우스 우클릭
+   2. Build Path > Configure Build Path.. 메뉴 선택
+   3. Libraries 탭 선택 > Add External JARs.. 버튼 클릭
+   4. 필요한 jar 파일을 해당 프로젝트에 외부 라이브러리로 등록
+      - 경로1 : C:\s-f-3.0.2.-with-docs\dist
+        · 파일1 : org.springframework.asm-3.0.2.RELEASE.jar
+        · 파일2 : org.springframework.beans-3.0.2.RELEASE.jar
+        · 파일3 : org.springframework.context-3.0.2.RELEASE.jar
+        · 파일4 : org.springframework.core-3.0.2.RELEASE.jar
+        · 파일5 : org.springframework.expression-3.0.2.RELEASE.jar
+
+      - 경로2 : C:\s-f-3.0.2.-dependencies\org.apache.commons
+		\com.springsource.org.apache.commons.logging\1.1.1
+        · 파일6 : com.springsource.org.apache.commons.logging-1.1.1.jar
+   
+   5. 스프링 프레임워크 환경 설정 파일을 XML 형식으로 생성
+      현재 실습 환경에서의 파일 이름은
+      사용자가 임의로 부여하여 생성하는 것이 가능. 
+      → 『applicationContext.xml』
+   6. 생성한 applicationContext.xml 파일에
+      스프링이 참조하게 될 객체에 대한 정보와 DI 설정을 추가.
+      - 참조 경로 : C:\s-f-3.0.2.-with-docs\docs
+			\spring-framework-reference\htmlsingle
+        · 참조 파일 : spring-framework-reference.html
+        · 참조 위치 : III. Core Technologies
+                            3.2.1. Configuration metadata
+           → 해당위치의 xml 샘플 파일 내용을 복사하여
+              applicationContext.xml 에 덮어쓰기
+
